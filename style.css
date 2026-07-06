@@ -1,523 +1,817 @@
+/* =====================================
+   OPERATION DILBEAN 💜
+   CLEAN FULL CSS
+===================================== */
+
+
+/* =========================
+   RESET
+========================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
 body {
+
     font-family: 'Quicksand', sans-serif;
-    overflow: hidden;
+
     height: 100vh;
-    background: linear-gradient(to bottom,
-        #12001f 0%,
-        #2b0052 40%,
-        #4d1f8c 100%);
+
+    overflow: hidden;
+
     color: white;
+
+    background:
+    linear-gradient(
+        180deg,
+        #12001f,
+        #2b0052,
+        #4d1f8c
+    );
+
 }
 
-/* ---------- BACKGROUND ---------- */
+
+
+/* =========================
+   GLOBAL HIDDEN
+========================= */
+
+.hidden {
+
+    display: none !important;
+
+}
+
+
+
+
+
+/* =========================
+   BACKGROUND STARS
+========================= */
+
 
 #stars {
+
     position: fixed;
+
     width: 100%;
     height: 100%;
+
+    z-index: 0;
+
     background-image:
-        radial-gradient(white 1.5px, transparent 1.5px),
-        radial-gradient(#d9b8ff 1px, transparent 1px),
-        radial-gradient(#ffffff 2px, transparent 2px);
+
+    radial-gradient(white 1.5px, transparent 1.5px),
+    radial-gradient(#d9b8ff 1px, transparent 1px),
+    radial-gradient(white 2px, transparent 2px);
+
 
     background-size:
-        120px 120px,
-        180px 180px,
-        250px 250px;
+
+    120px 120px,
+    180px 180px,
+    250px 250px;
+
 
     animation: twinkle 8s infinite alternate;
-    opacity: .75;
+
 }
 
+
+
 @keyframes twinkle {
+
     from {
-        opacity: .45;
+        opacity: .4;
     }
 
     to {
         opacity: 1;
     }
+
 }
+
+
+
+/* =========================
+   MOON
+========================= */
+
 
 .moon {
 
-    position: absolute;
-    top: 70px;
-    right: 90px;
+    position: fixed;
 
-    width: 120px;
-    height: 120px;
+    top:70px;
+    right:100px;
 
-    background: #fff7c5;
+    width:120px;
+    height:120px;
 
-    border-radius: 50%;
+    border-radius:50%;
+
+    background:#fff7c5;
 
     box-shadow:
-        0 0 30px #fff9d8,
-        0 0 70px #fff8c7;
+
+    0 0 30px #fff7c5,
+    0 0 80px #fff7c5;
+
+
 }
 
-/* ---------- MAIN ---------- */
+
+
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
 
 .container {
 
-    height: 100vh;
+    position:relative;
 
-    display: flex;
+    z-index:5;
 
-    flex-direction: column;
+    height:100vh;
 
-    justify-content: center;
+    display:flex;
 
-    align-items: center;
+    justify-content:center;
 
-    text-align: center;
+    align-items:center;
 
-    position: relative;
+    flex-direction:column;
 
-    z-index: 5;
-
-}
-
-h1{
-
-font-size:3.5rem;
-
-margin-bottom:15px;
-
-text-shadow:0 0 20px rgba(255,255,255,.25);
-
-}
-
-.subtitle{
-
-font-size:1.2rem;
-
-margin-bottom:45px;
-
-opacity:.9;
-
-}
-
-/* ---------- ENVELOPE ---------- */
-
-.envelope{
-
-position:relative;
-
-width:420px;
-
-height:270px;
-
-background:#b982ff;
-
-border-radius:12px;
-
-cursor:pointer;
-
-box-shadow:0 20px 45px rgba(0,0,0,.35);
-
-transition:.8s;
-
-animation:float 3s ease-in-out infinite;
-
-}
-
-@keyframes float{
-
-0%{
-
-transform:translateY(0px);
-
-}
-
-50%{
-
-transform:translateY(-10px);
-
-}
-
-100%{
-
-transform:translateY(0px);
-
-}
-
-}
-
-.envelope-top{
-
-position:absolute;
-
-width:100%;
-
-height:130px;
-
-background:#a96dff;
-
-clip-path:polygon(0 0,100% 0,50% 100%);
-
-transition:.8s;
-
-transform-origin:top;
-
-z-index:3;
-
-}
-
-.letter{
-
-position:absolute;
-
-left:15px;
-
-top:15px;
-
-width:390px;
-
-height:240px;
-
-background:white;
-
-border-radius:10px;
-
-padding:20px;
-
-overflow-y:auto;
-
-color:#555;
-
-transform:translateY(70px);
-
-transition:.8s;
-
-z-index:2;
-
-}
-
-.letter h2{
-
-color:#7a36ff;
-
-margin-bottom:12px;
-
-}
-
-.letter p{
-
-margin-bottom:14px;
-
-line-height:1.45;
-
-}
-
-/* ---------- OPEN ---------- */
-
-.envelope.open .envelope-top{
-
-transform:rotateX(180deg);
-
-}
-
-.envelope.open .letter{
-
-transform:translateY(-80px);
-
-}
-
-/* ---------- BUTTON ---------- */
-
-button{
-
-margin-top:15px;
-
-padding:14px 28px;
-
-border:none;
-
-border-radius:40px;
-
-background:#7a36ff;
-
-color:white;
-
-font-size:1rem;
-
-cursor:pointer;
-
-transition:.25s;
-
-}
-
-button:hover{
-
-transform:scale(1.08);
-
-background:#6527df;
-
-box-shadow:0 0 20px #9e7fff;
-
-}
-/* =========================
-   CONSTELLATION MAP
-========================= */
-
-.hidden{
-    display:none;
-}
-
-#map{
-    position:absolute;
-    width:100%;
-    height:100%;
-}
-
-/* stars in the map */
-.star{
-    position:absolute;
-    font-size:2rem;
-    cursor:pointer;
-    transition:0.3s;
-    animation: floatStar 3s ease-in-out infinite;
-}
-
-.star:hover{
-    transform:scale(1.4);
-    filter:drop-shadow(0 0 10px white);
-}
-
-@keyframes floatStar{
-    0%{transform:translateY(0px);}
-    50%{transform:translateY(-8px);}
-    100%{transform:translateY(0px);}
-}
-
-/* positions */
-#star1{ top:40%; left:30%; }
-#star2{ top:25%; left:55%; }
-#star3{ top:60%; left:65%; }
-#star4{ top:35%; left:75%; }
-#star5{ top:55%; left:40%; }
-
-/* easter eggs wiggle */
-.wiggle{
-    animation: wiggle 1s infinite;
-}
-
-@keyframes wiggle{
-    0%{transform:rotate(0deg);}
-    25%{transform:rotate(10deg);}
-    50%{transform:rotate(-10deg);}
-    100%{transform:rotate(0deg);}
-}
-/* =========================
-   POPUP SYSTEM
-========================= */
-
-.overlay{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter: blur(6px);
-    z-index:50;
-}
-
-.popup{
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    background:white;
-    color:#444;
-    padding:25px;
-    width:320px;
-    border-radius:15px;
-    z-index:100;
-    box-shadow:0 0 40px rgba(160,100,255,0.6);
     text-align:center;
-    animation: popIn 0.3s ease;
+
 }
 
-.popup h2{
+
+
+h1 {
+
+    font-size:3rem;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.subtitle {
+
+    font-size:1.2rem;
+
+    margin-bottom:40px;
+
+    opacity:.9;
+
+}
+
+
+
+
+
+/* =========================
+   ENVELOPE
+========================= */
+
+
+.envelope {
+
+    position:relative;
+
+    width:420px;
+
+    height:270px;
+
+    background:#b982ff;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    box-shadow:
+
+    0 20px 50px rgba(0,0,0,.4);
+
+
+    animation:float 3s infinite ease-in-out;
+
+    transition:.7s;
+
+}
+
+
+
+
+@keyframes float {
+
+    50% {
+
+        transform:translateY(-12px);
+
+    }
+
+}
+
+
+
+.envelope-top {
+
+
+    position:absolute;
+
+    width:100%;
+
+    height:140px;
+
+    background:#a96dff;
+
+
+    clip-path:
+
+    polygon(
+    0 0,
+    100% 0,
+    50% 100%
+    );
+
+
+    transform-origin:top;
+
+    transition:.8s;
+
+    z-index:3;
+
+}
+
+
+
+.letter {
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+
+    width:390px;
+
+    height:240px;
+
+
+    background:white;
+
+    color:#444;
+
+
+    padding:20px;
+
+    border-radius:12px;
+
+
+    overflow:auto;
+
+
+    transform:translateY(70px);
+
+    transition:.8s;
+
+
+    z-index:2;
+
+}
+
+
+
+.letter h2 {
+
     color:#7a36ff;
-    margin-bottom:10px;
+
+    margin-bottom:15px;
+
 }
 
-.popup button{
+
+
+.letter p {
+
+    margin-bottom:15px;
+
+    line-height:1.5;
+
+}
+
+
+
+.envelope.open .envelope-top {
+
+    transform:rotateX(180deg);
+
+}
+
+
+
+.envelope.open .letter {
+
+    transform:translateY(-90px);
+
+}
+
+
+
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+
+button {
+
     margin-top:15px;
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:30px;
+
+
+    background:#7a36ff;
+
+    color:white;
+
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+
+    transition:.3s;
+
 }
 
-@keyframes popIn{
-    from{
-        transform:translate(-50%,-50%) scale(0.8);
-        opacity:0;
-    }
-    to{
-        transform:translate(-50%,-50%) scale(1);
-        opacity:1;
-    }
-}
-/* =========================
-   FLOATING PARTICLES
-========================= */
 
-#particles {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 1;
+
+button:hover {
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 0 20px #b98cff;
+
 }
 
-.particle {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: rgba(210, 170, 255, 0.8);
-    border-radius: 50%;
-    animation: floatUp linear infinite;
-    box-shadow: 0 0 10px rgba(200,150,255,0.6);
-}
 
-@keyframes floatUp {
-    from {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
-    20% {
-        opacity: 1;
-    }
-    to {
-        transform: translateY(-10vh);
-        opacity: 0;
-    }
-}
+
+
 
 /* =========================
-   WIGGLE HINT STYLE (upgrade)
+   MAP
 ========================= */
+
+
+#map {
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    top:0;
+
+    left:0;
+
+}
+
+
+
+
+
+/* =========================
+   STARS
+========================= */
+
+
+.star {
+
+
+    position:absolute;
+
+    font-size:2.5rem;
+
+    cursor:pointer;
+
+    animation:
+    starFloat 3s infinite ease-in-out;
+
+
+}
+
+
+
+.star:hover {
+
+    transform:scale(1.4);
+
+    filter:
+    drop-shadow(0 0 15px white);
+
+}
+
+
+
+@keyframes starFloat {
+
+
+50% {
+
+    margin-top:-10px;
+
+}
+
+
+}
+
+
+
+/* STAR POSITIONS */
+
+
+#star1 {
+
+top:35%;
+left:25%;
+
+}
+
+
+#star2 {
+
+top:25%;
+left:50%;
+
+}
+
+
+#star3 {
+
+top:60%;
+left:65%;
+
+}
+
+
+#star4 {
+
+top:40%;
+left:80%;
+
+}
+
+
+#star5 {
+
+top:65%;
+left:45%;
+
+}
+
+
+
+
+
+/* =========================
+   EASTER EGGS
+========================= */
+
+
+.wiggle {
+
+    animation:
+    wiggle 1s infinite;
+
+}
+
+
 
 .wiggleHint {
-    animation: wiggleSoft 1.5s infinite;
-    filter: drop-shadow(0 0 6px rgba(255,255,255,0.6));
+
+    animation:
+    wiggle 1.2s infinite;
+
 }
 
-@keyframes wiggleSoft {
-    0% { transform: rotate(0deg) scale(1); }
-    50% { transform: rotate(6deg) scale(1.05); }
-    100% { transform: rotate(0deg) scale(1); }
+
+
+@keyframes wiggle {
+
+
+25% {
+
+transform:rotate(10deg);
+
 }
+
+
+50% {
+
+transform:rotate(-10deg);
+
+}
+
+
+}
+
+
+
+
 
 /* =========================
-   JAGUAR (tiny roaming icon)
+   POPUPS
 ========================= */
 
-#jaguar {
-    position: fixed;
-    bottom: 10px;
-    left: -80px;
-    font-size: 2rem;
-    z-index: 20;
-    pointer-events: none;
-    animation: walkAcross 18s linear infinite;
-    opacity: 0.9;
+
+.overlay {
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.6);
+
+    backdrop-filter:blur(5px);
+
+    z-index:50;
+
 }
 
-@keyframes walkAcross {
-    0% { left: -80px; }
-    100% { left: 110vw; }
+
+
+
+.popup {
+
+
+    position:fixed;
+
+
+    top:50%;
+
+    left:50%;
+
+
+    transform:
+    translate(-50%,-50%);
+
+
+    width:330px;
+
+
+    padding:25px;
+
+
+    background:white;
+
+    color:#444;
+
+
+    border-radius:20px;
+
+
+    text-align:center;
+
+
+    z-index:100;
+
+
 }
+
+
+
+.popup h2 {
+
+    color:#7a36ff;
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+/* =========================
+   PARTICLES
+========================= */
+
+
+#particles {
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:2;
+
+}
+
+
+
+.particle {
+
+
+    position:absolute;
+
+    width:6px;
+
+    height:6px;
+
+
+    background:#e2c6ff;
+
+
+    border-radius:50%;
+
+
+    animation:
+    floatUp linear infinite;
+
+
+}
+
+
+
+
+@keyframes floatUp {
+
+
+from {
+
+transform:translateY(100vh);
+
+}
+
+
+to {
+
+transform:translateY(-10vh);
+
+}
+
+
+}
+
+
+
+
+
+/* =========================
+   JAGUAR
+========================= */
+
+
+#jaguar {
+
+
+    position:fixed;
+
+
+    bottom:15px;
+
+    left:-80px;
+
+
+    font-size:2rem;
+
+
+    z-index:20;
+
+
+    animation:
+    walk 18s linear infinite;
+
+
+}
+
+
+
+@keyframes walk {
+
+
+to {
+
+left:110vw;
+
+}
+
+
+}
+
+
+
+
+
 /* =========================
    FINAL SCREEN
 ========================= */
 
+
 .finalScreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 
-    background: radial-gradient(circle at top,
-        #2b0052,
-        #12001f);
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    position:fixed;
 
-    text-align: center;
-    color: white;
 
-    z-index: 999;
-    padding: 20px;
+    inset:0;
 
-    animation: fadeIn 2s ease;
+
+    background:
+
+    radial-gradient(
+        circle,
+        #4d1f8c,
+        #12001f
+    );
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    text-align:center;
+
+
+    padding:20px;
+
+
+    z-index:999;
+
+
+
 }
+
+
 
 .finalScreen h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+
+    font-size:3rem;
+
 }
+
+
 
 .finalScreen p {
-    max-width: 600px;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
+
+    max-width:600px;
+
+    line-height:1.6;
+
+    font-size:1.2rem;
+
 }
 
-.finalScreen .small {
-    font-size: 1rem;
-    opacity: 0.8;
-}
 
-#replayBtn {
-    margin-top: 20px;
-    padding: 12px 24px;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
 
-    background: #7a36ff;
-    color: white;
 
-    font-size: 1rem;
-
-    transition: 0.3s;
-}
-
-#replayBtn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #a87bff;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
 
 /* =========================
-   CONFETTI CANVAS
+   CONFETTI
 ========================= */
 
+
 #confetti {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 998;
+
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:998;
+
+
 }
