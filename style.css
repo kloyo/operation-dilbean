@@ -1,0 +1,523 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    background: linear-gradient(to bottom,
+        #12001f 0%,
+        #2b0052 40%,
+        #4d1f8c 100%);
+    color: white;
+}
+
+/* ---------- BACKGROUND ---------- */
+
+#stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(white 1.5px, transparent 1.5px),
+        radial-gradient(#d9b8ff 1px, transparent 1px),
+        radial-gradient(#ffffff 2px, transparent 2px);
+
+    background-size:
+        120px 120px,
+        180px 180px,
+        250px 250px;
+
+    animation: twinkle 8s infinite alternate;
+    opacity: .75;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: .45;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.moon {
+
+    position: absolute;
+    top: 70px;
+    right: 90px;
+
+    width: 120px;
+    height: 120px;
+
+    background: #fff7c5;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 30px #fff9d8,
+        0 0 70px #fff8c7;
+}
+
+/* ---------- MAIN ---------- */
+
+.container {
+
+    height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 5;
+
+}
+
+h1{
+
+font-size:3.5rem;
+
+margin-bottom:15px;
+
+text-shadow:0 0 20px rgba(255,255,255,.25);
+
+}
+
+.subtitle{
+
+font-size:1.2rem;
+
+margin-bottom:45px;
+
+opacity:.9;
+
+}
+
+/* ---------- ENVELOPE ---------- */
+
+.envelope{
+
+position:relative;
+
+width:420px;
+
+height:270px;
+
+background:#b982ff;
+
+border-radius:12px;
+
+cursor:pointer;
+
+box-shadow:0 20px 45px rgba(0,0,0,.35);
+
+transition:.8s;
+
+animation:float 3s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+.envelope-top{
+
+position:absolute;
+
+width:100%;
+
+height:130px;
+
+background:#a96dff;
+
+clip-path:polygon(0 0,100% 0,50% 100%);
+
+transition:.8s;
+
+transform-origin:top;
+
+z-index:3;
+
+}
+
+.letter{
+
+position:absolute;
+
+left:15px;
+
+top:15px;
+
+width:390px;
+
+height:240px;
+
+background:white;
+
+border-radius:10px;
+
+padding:20px;
+
+overflow-y:auto;
+
+color:#555;
+
+transform:translateY(70px);
+
+transition:.8s;
+
+z-index:2;
+
+}
+
+.letter h2{
+
+color:#7a36ff;
+
+margin-bottom:12px;
+
+}
+
+.letter p{
+
+margin-bottom:14px;
+
+line-height:1.45;
+
+}
+
+/* ---------- OPEN ---------- */
+
+.envelope.open .envelope-top{
+
+transform:rotateX(180deg);
+
+}
+
+.envelope.open .letter{
+
+transform:translateY(-80px);
+
+}
+
+/* ---------- BUTTON ---------- */
+
+button{
+
+margin-top:15px;
+
+padding:14px 28px;
+
+border:none;
+
+border-radius:40px;
+
+background:#7a36ff;
+
+color:white;
+
+font-size:1rem;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+background:#6527df;
+
+box-shadow:0 0 20px #9e7fff;
+
+}
+/* =========================
+   CONSTELLATION MAP
+========================= */
+
+.hidden{
+    display:none;
+}
+
+#map{
+    position:absolute;
+    width:100%;
+    height:100%;
+}
+
+/* stars in the map */
+.star{
+    position:absolute;
+    font-size:2rem;
+    cursor:pointer;
+    transition:0.3s;
+    animation: floatStar 3s ease-in-out infinite;
+}
+
+.star:hover{
+    transform:scale(1.4);
+    filter:drop-shadow(0 0 10px white);
+}
+
+@keyframes floatStar{
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(-8px);}
+    100%{transform:translateY(0px);}
+}
+
+/* positions */
+#star1{ top:40%; left:30%; }
+#star2{ top:25%; left:55%; }
+#star3{ top:60%; left:65%; }
+#star4{ top:35%; left:75%; }
+#star5{ top:55%; left:40%; }
+
+/* easter eggs wiggle */
+.wiggle{
+    animation: wiggle 1s infinite;
+}
+
+@keyframes wiggle{
+    0%{transform:rotate(0deg);}
+    25%{transform:rotate(10deg);}
+    50%{transform:rotate(-10deg);}
+    100%{transform:rotate(0deg);}
+}
+/* =========================
+   POPUP SYSTEM
+========================= */
+
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    z-index:50;
+}
+
+.popup{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:white;
+    color:#444;
+    padding:25px;
+    width:320px;
+    border-radius:15px;
+    z-index:100;
+    box-shadow:0 0 40px rgba(160,100,255,0.6);
+    text-align:center;
+    animation: popIn 0.3s ease;
+}
+
+.popup h2{
+    color:#7a36ff;
+    margin-bottom:10px;
+}
+
+.popup button{
+    margin-top:15px;
+}
+
+@keyframes popIn{
+    from{
+        transform:translate(-50%,-50%) scale(0.8);
+        opacity:0;
+    }
+    to{
+        transform:translate(-50%,-50%) scale(1);
+        opacity:1;
+    }
+}
+/* =========================
+   FLOATING PARTICLES
+========================= */
+
+#particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(210, 170, 255, 0.8);
+    border-radius: 50%;
+    animation: floatUp linear infinite;
+    box-shadow: 0 0 10px rgba(200,150,255,0.6);
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   WIGGLE HINT STYLE (upgrade)
+========================= */
+
+.wiggleHint {
+    animation: wiggleSoft 1.5s infinite;
+    filter: drop-shadow(0 0 6px rgba(255,255,255,0.6));
+}
+
+@keyframes wiggleSoft {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(6deg) scale(1.05); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+
+/* =========================
+   JAGUAR (tiny roaming icon)
+========================= */
+
+#jaguar {
+    position: fixed;
+    bottom: 10px;
+    left: -80px;
+    font-size: 2rem;
+    z-index: 20;
+    pointer-events: none;
+    animation: walkAcross 18s linear infinite;
+    opacity: 0.9;
+}
+
+@keyframes walkAcross {
+    0% { left: -80px; }
+    100% { left: 110vw; }
+}
+/* =========================
+   FINAL SCREEN
+========================= */
+
+.finalScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: radial-gradient(circle at top,
+        #2b0052,
+        #12001f);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+
+    z-index: 999;
+    padding: 20px;
+
+    animation: fadeIn 2s ease;
+}
+
+.finalScreen h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.finalScreen p {
+    max-width: 600px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.finalScreen .small {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+#replayBtn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+
+    background: #7a36ff;
+    color: white;
+
+    font-size: 1rem;
+
+    transition: 0.3s;
+}
+
+#replayBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #a87bff;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* =========================
+   CONFETTI CANVAS
+========================= */
+
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 998;
+}

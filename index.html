@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operation: Future Dr. Dilbean 💜</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="stars"></div>
+    <div id="particles"></div>
+
+    <div class="moon"></div>
+
+    <div class="container">
+
+        <h1>🌌 Operation: Future Dr. Dilbean</h1>
+
+        <p class="subtitle">
+            One tiny step at a time.
+            <br>
+            (No speedrun required.)
+        </p>
+
+        <div class="envelope" id="envelope">
+
+            <div class="envelope-top"></div>
+
+            <div class="letter">
+
+                <h2>Hi Dilbean 💜</h2>
+
+                <p>
+                    I know this isn't the year either of us imagined.
+                </p>
+
+                <p>
+                    But one set of results doesn't suddenly make you any less clever,
+                    hardworking, or capable of becoming an amazing doctor.
+                </p>
+
+                <p>
+                    It just means the road got a little longer.
+                </p>
+
+                <p>
+                    And guess what?
+                </p>
+
+                <p>
+                    I'm still walking it with you.
+                </p>
+
+                <p>
+                    So here's your official mission tracker...
+                </p>
+
+                <p>
+                    (I promise it's much cuter than UCAT.)
+                </p>
+
+                <button id="startButton">
+                    Begin Mission 🚀
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+<body>
+
+<div id="stars"></div>
+<div class="moon"></div>
+
+<div class="container">
+
+    <h1>🌌 Operation Dilbean</h1>
+    <p class="subtitle">click the stars to continue the mission 💜</p>
+
+    <!-- ENVELOPE (still there for now) -->
+    <div class="envelope" id="envelope">
+        <div class="envelope-top"></div>
+
+        <div class="letter">
+            <h2>Hi Dilbean 💜</h2>
+
+            <p>your mission is loading…</p>
+
+            <button id="startButton">Begin Mission 🚀</button>
+        </div>
+    </div>
+
+    <!-- 🌟 CONSTELLATION MAP (hidden at first) -->
+    <div id="map" class="hidden">
+
+        <div class="star" id="star1">⭐</div>
+        <div class="star" id="star2">⭐</div>
+        <div class="star" id="star3">⭐</div>
+        <div class="star" id="star4">⭐</div>
+        <div class="star" id="star5">⭐</div>
+
+        <!-- Easter eggs -->
+        <div class="star wiggle" id="egg1">👀</div>
+        <div class="star wiggle" id="egg2">🐆</div>
+        <div class="star wiggle" id="egg3">🚗</div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+<!-- 🌙 POPUP SYSTEM -->
+<div id="overlay" class="overlay hidden"></div>
+
+<div id="popup" class="popup hidden">
+    <h2 id="popupTitle"></h2>
+    <p id="popupText"></p>
+    <button onclick="closePopup()">close ✨</button>
+</div>
+<!-- 💜 FINAL SCREEN -->
+<div id="finalScreen" class="finalScreen hidden">
+
+    <h1>💜 Mission Complete</h1>
+
+    <p>
+        This isn’t the end of anything.<br><br>
+
+        Just a reminder that no matter what happens next —<br>
+        you are still building something good.
+    </p>
+
+    <p class="small">
+        Medicine, finance, economics… or something unexpected.<br>
+        You’re still you in all of them.
+    </p>
+
+    <button id="replayBtn">replay mission 🔁</button>
+
+</div>
+
+<canvas id="confetti"></canvas>
+
+</body>
