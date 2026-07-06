@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operation: Future Dr. Dilbean 💜</title>
+
+    <title>Operation Dilbean 💜</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -13,18 +14,18 @@
 
 <body>
 
+    <!-- Background -->
     <div id="stars"></div>
     <div id="particles"></div>
-
     <div class="moon"></div>
 
+    <!-- Landing Page -->
     <div class="container">
 
-        <h1>🌌 Operation: Future Dr. Dilbean</h1>
+        <h1>🌌 Operation Dilbean</h1>
 
         <p class="subtitle">
-            One tiny step at a time.
-            <br>
+            One tiny step at a time.<br>
             (No speedrun required.)
         </p>
 
@@ -36,9 +37,7 @@
 
                 <h2>Hi Dilbean 💜</h2>
 
-                <p>
-                    I know this isn't the year either of us imagined.
-                </p>
+                <p>I know this isn't the year either of us imagined.</p>
 
                 <p>
                     But one set of results doesn't suddenly make you any less clever,
@@ -58,7 +57,7 @@
                 </p>
 
                 <p>
-                    So here's your official mission tracker...
+                    So here's your official mission tracker.
                 </p>
 
                 <p>
@@ -75,81 +74,83 @@
 
     </div>
 
-<script src="script.js"></script>
+    <!-- Mission Map -->
 
-</body>
-</html>
-<body>
-
-<div id="stars"></div>
-<div class="moon"></div>
-
-<div class="container">
-
-    <h1>🌌 Operation Dilbean</h1>
-    <p class="subtitle">click the stars to continue the mission 💜</p>
-
-    <!-- ENVELOPE (still there for now) -->
-    <div class="envelope" id="envelope">
-        <div class="envelope-top"></div>
-
-        <div class="letter">
-            <h2>Hi Dilbean 💜</h2>
-
-            <p>your mission is loading…</p>
-
-            <button id="startButton">Begin Mission 🚀</button>
-        </div>
-    </div>
-
-    <!-- 🌟 CONSTELLATION MAP (hidden at first) -->
     <div id="map" class="hidden">
 
-        <div class="star" id="star1">⭐</div>
-        <div class="star" id="star2">⭐</div>
-        <div class="star" id="star3">⭐</div>
-        <div class="star" id="star4">⭐</div>
-        <div class="star" id="star5">⭐</div>
+        <div id="star1" class="star">⭐</div>
+        <div id="star2" class="star">⭐</div>
+        <div id="star3" class="star">⭐</div>
+        <div id="star4" class="star">⭐</div>
+        <div id="star5" class="star">⭐</div>
 
-        <!-- Easter eggs -->
-        <div class="star wiggle" id="egg1">👀</div>
-        <div class="star wiggle" id="egg2">🐆</div>
-        <div class="star wiggle" id="egg3">🚗</div>
+        <!-- Easter Eggs -->
+        <div id="egg1" class="star wiggle">👀</div>
+        <div id="egg2" class="star wiggle">🐆</div>
+        <div id="egg3" class="star wiggle">🚗</div>
 
     </div>
 
-</div>
+    <!-- Popup -->
 
-<script src="script.js"></script>
-<!-- 🌙 POPUP SYSTEM -->
-<div id="overlay" class="overlay hidden"></div>
+    <div id="overlay" class="overlay hidden"></div>
 
-<div id="popup" class="popup hidden">
-    <h2 id="popupTitle"></h2>
-    <p id="popupText"></p>
-    <button onclick="closePopup()">close ✨</button>
-</div>
-<!-- 💜 FINAL SCREEN -->
-<div id="finalScreen" class="finalScreen hidden">
+    <div id="popup" class="popup hidden">
 
-    <h1>💜 Mission Complete</h1>
+        <h2 id="popupTitle"></h2>
 
-    <p>
-        This isn’t the end of anything.<br><br>
+        <p id="popupText"></p>
 
-        Just a reminder that no matter what happens next —<br>
-        you are still building something good.
-    </p>
+        <button onclick="closePopup()">
+            Close ✨
+        </button>
 
-    <p class="small">
-        Medicine, finance, economics… or something unexpected.<br>
-        You’re still you in all of them.
-    </p>
+    </div>
 
-    <button id="replayBtn">replay mission 🔁</button>
+    <!-- Final Screen -->
 
-</div>
+    <div id="finalScreen" class="finalScreen hidden">
 
-<canvas id="confetti"></canvas>
+        <h1>💜 Mission Complete</h1>
+
+        <p>
+            This isn't the end of anything.
+            <br><br>
+
+            It's just another chapter.
+        </p>
+
+        <p>
+            Whether your future has
+            <br>
+            a white coat,
+            <br>
+            a suit in London,
+            <br>
+            or something neither of us expects...
+            <br><br>
+
+            I'll still be ridiculously proud of you.
+        </p>
+
+        <p>
+            Love,
+            <br>
+            Your biggest fan 💜
+        </p>
+
+        <button id="replayBtn">
+            Replay Mission 🔁
+        </button>
+
+    </div>
+
+    <!-- Confetti -->
+
+    <canvas id="confetti"></canvas>
+
+    <script src="script.js"></script>
 
 </body>
+
+</html>
