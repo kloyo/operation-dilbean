@@ -2,154 +2,172 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Operation Dilbean 💜</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>Operation Dilbean 💜</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
 </head>
+
 
 <body>
 
-    <!-- Background -->
-    <div id="stars"></div>
-    <div id="particles"></div>
-    <div class="moon"></div>
 
-    <!-- Landing Page -->
-    <div class="container">
+<div id="stars"></div>
+<div id="particles"></div>
 
-        <h1>🌌 Operation Dilbean</h1>
+<div class="moon"></div>
 
-        <p class="subtitle">
-            One tiny step at a time.<br>
-            (No speedrun required.)
-        </p>
 
-        <div class="envelope" id="envelope">
+<div class="container">
 
-            <div class="envelope-top"></div>
 
-            <div class="letter">
+<h1>🌌 Operation Dilbean</h1>
 
-                <h2>Hi Dilbean 💜</h2>
+<p class="subtitle">
+One tiny step at a time.
+<br>
+(No speedrun required.)
+</p>
 
-                <p>I know this isn't the year either of us imagined.</p>
 
-                <p>
-                    But one set of results doesn't suddenly make you any less clever,
-                    hardworking, or capable of becoming an amazing doctor.
-                </p>
 
-                <p>
-                    It just means the road got a little longer.
-                </p>
+<div class="envelope" id="envelope">
 
-                <p>
-                    And guess what?
-                </p>
+<div class="envelope-top"></div>
 
-                <p>
-                    I'm still walking it with you.
-                </p>
 
-                <p>
-                    So here's your official mission tracker.
-                </p>
+<div class="letter">
 
-                <p>
-                    (I promise it's much cuter than UCAT.)
-                </p>
+<h2>Hi Dilbean 💜</h2>
 
-                <button id="startButton">
-                    Begin Mission 🚀
-                </button>
 
-            </div>
+<p>
+I know this isn't the year either of us imagined.
+</p>
 
-        </div>
+<p>
+But one set of IB results doesn't define you.
+</p>
 
-    </div>
+<p>
+The road got longer.
+Not impossible.
+</p>
 
-    <!-- Mission Map -->
+<p>
+I'm still cheering for you every step.
+</p>
 
-    <div id="map" class="hidden">
 
-        <div id="star1" class="star">⭐</div>
-        <div id="star2" class="star">⭐</div>
-        <div id="star3" class="star">⭐</div>
-        <div id="star4" class="star">⭐</div>
-        <div id="star5" class="star">⭐</div>
+<button id="startButton">
+Begin Mission 🚀
+</button>
 
-        <!-- Easter Eggs -->
-        <div id="egg1" class="star wiggle">👀</div>
-        <div id="egg2" class="star wiggle">🐆</div>
-        <div id="egg3" class="star wiggle">🚗</div>
 
-    </div>
+</div>
 
-    <!-- Popup -->
+</div>
 
-    <div id="overlay" class="overlay hidden"></div>
 
-    <div id="popup" class="popup hidden">
 
-        <h2 id="popupTitle"></h2>
+<div id="map" class="hidden">
 
-        <p id="popupText"></p>
 
-        <button onclick="closePopup()">
-            Close ✨
-        </button>
+<div class="star" id="star1">⭐</div>
 
-    </div>
+<div class="star" id="star2">⭐</div>
 
-    <!-- Final Screen -->
+<div class="star" id="star3">⭐</div>
 
-    <div id="finalScreen" class="finalScreen hidden">
+<div class="star" id="star4">⭐</div>
 
-        <h1>💜 Mission Complete</h1>
+<div class="star" id="star5">⭐</div>
 
-        <p>
-            This isn't the end of anything.
-            <br><br>
 
-            It's just another chapter.
-        </p>
+<div class="star wiggle" id="egg1">👀</div>
 
-        <p>
-            Whether your future has
-            <br>
-            a white coat,
-            <br>
-            a suit in London,
-            <br>
-            or something neither of us expects...
-            <br><br>
+<div class="star wiggle" id="egg2">🐆</div>
 
-            I'll still be ridiculously proud of you.
-        </p>
+<div class="star wiggle" id="egg3">💜</div>
 
-        <p>
-            Love,
-            <br>
-            Your biggest fan 💜
-        </p>
 
-        <button id="replayBtn">
-            Replay Mission 🔁
-        </button>
+</div>
 
-    </div>
 
-    <!-- Confetti -->
+</div>
 
-    <canvas id="confetti"></canvas>
 
-    <script src="script.js"></script>
+
+
+<!-- POPUP -->
+
+<div id="overlay" class="overlay hidden"></div>
+
+
+<div id="popup" class="popup hidden">
+
+<h2 id="popupTitle"></h2>
+
+<p id="popupText"></p>
+
+<button onclick="closePopup()">
+close ✨
+</button>
+
+</div>
+
+
+
+
+
+<!-- FINAL -->
+
+<div id="finalScreen" class="finalScreen hidden">
+
+
+<h1>
+💜 Mission Complete
+</h1>
+
+
+<p>
+
+This isn't the end.
+
+<br><br>
+
+It is just another chapter.
+
+<br><br>
+
+I am proud of you no matter what path you take.
+
+</p>
+
+
+<button id="replayBtn">
+
+Replay Mission 🔁
+
+</button>
+
+
+</div>
+
+
+
+<canvas id="confetti"></canvas>
+
+
+
+<script src="script.js"></script>
+
 
 </body>
 

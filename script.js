@@ -1,7 +1,7 @@
-// =========================
+// =====================================
 // Operation Dilbean 💜
-// FULL CLEAN SCRIPT (Parts 2–5)
-// =========================
+// CLEAN FULL SCRIPT
+// =====================================
 
 
 // =========================
@@ -14,6 +14,7 @@ const map = document.getElementById("map");
 
 const overlay = document.getElementById("overlay");
 const popup = document.getElementById("popup");
+
 const popupTitle = document.getElementById("popupTitle");
 const popupText = document.getElementById("popupText");
 
@@ -21,236 +22,593 @@ const finalScreen = document.getElementById("finalScreen");
 const replayBtn = document.getElementById("replayBtn");
 
 
-// =========================
-// ENVELOPE LOGIC
-// =========================
-
-envelope.addEventListener("click", () => {
-    envelope.classList.toggle("open");
-});
-
-startButton.addEventListener("click", (e) => {
-    e.stopPropagation();
-
-    envelope.style.opacity = "0";
-
-    setTimeout(() => {
-        envelope.style.display = "none";
-        map.classList.remove("hidden");
-
-        // activate easter egg wiggles
-        ["egg1", "egg2", "egg3"].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.classList.add("wiggleHint");
-        });
-
-    }, 700);
-});
-
 
 // =========================
-// POPUP SYSTEM
+// ENVELOPE
 // =========================
 
-function openPopup(title, text) {
-    popupTitle.innerText = title;
-    popupText.innerText = text;
+
+if(envelope){
+
+    envelope.addEventListener("click",()=>{
+
+        envelope.classList.toggle("open");
+
+    });
+
+}
+
+
+
+if(startButton){
+
+    startButton.addEventListener("click",(event)=>{
+
+
+        event.stopPropagation();
+
+
+        envelope.style.opacity="0";
+
+
+        setTimeout(()=>{
+
+
+            envelope.style.display="none";
+
+
+            if(map){
+
+                map.classList.remove("hidden");
+
+            }
+
+
+            // make secrets wiggle
+
+            ["egg1","egg2","egg3"].forEach(id=>{
+
+                const egg=document.getElementById(id);
+
+                if(egg){
+
+                    egg.classList.add("wiggleHint");
+
+                }
+
+            });
+
+
+        },700);
+
+
+    });
+
+}
+
+
+
+
+
+// =========================
+// POPUPS
+// =========================
+
+
+function openPopup(title,text){
+
+
+    if(popupTitle)
+        popupTitle.innerText=title;
+
+
+    if(popupText)
+        popupText.innerText=text;
+
 
     overlay.classList.remove("hidden");
+
     popup.classList.remove("hidden");
+
+
 }
 
-function closePopup() {
+
+
+function closePopup(){
+
+
     overlay.classList.add("hidden");
+
     popup.classList.add("hidden");
+
+
 }
 
-overlay.addEventListener("click", closePopup);
-window.closePopup = closePopup;
+
+
+window.closePopup=closePopup;
+
+
+
+if(overlay){
+
+    overlay.onclick=closePopup;
+
+}
+
+
+
 
 
 // =========================
-// STAR DATA
+// MAIN MISSION STARS
 // =========================
 
-const stars = [
-    {
-        id: "star1",
-        title: "📚 IB Resits",
-        text: "You’re not starting over. You’re finishing properly this time.\n\nSlow progress still counts."
-    },
-    {
-        id: "star2",
-        title: "🧠 UCAT",
-        text: "One question at a time.\nNot the whole future at once.\n\nYou’re stronger than panic."
-    },
-    {
-        id: "star3",
-        title: "📅 November Exams",
-        text: "You already learned this once.\nNow it’s refinement, not discovery."
-    },
-    {
-        id: "star4",
-        title: "📨 Results (December)",
-        text: "Whatever happens is information, not identity.\n\nWe adjust, we don’t panic."
-    }
+
+const missions=[
+
+
+{
+id:"star1",
+title:"📚 IB Resits",
+text:
+"You are not starting again, Dilbean 💜\n\n"+
+"You already climbed this mountain once.\n"+
+"Now you know the route.\n\n"+
+"Small steps still move forward."
+},
+
+
+{
+id:"star2",
+title:"🧠 UCAT Arc",
+text:
+"One question at a time.\n\n"+
+"Not the whole future.\n"+
+"Not every possibility.\n"+
+"Just the next question.\n\n"+
+"You've got this."
+},
+
+
+{
+id:"star3",
+title:"📅 November Exams",
+text:
+"This isn't proving you are smart.\n\n"+
+"You already are.\n\n"+
+"This is just showing everyone what you already know."
+},
+
+
+{
+id:"star4",
+title:"📨 December Results",
+text:
+"Results are information.\n\n"+
+"They are not your identity.\n\n"+
+"We celebrate, adjust, and keep going 💜"
+},
+
+
+
+{
+id:"star5",
+title:"🌟 The Fork In The Road",
+text:
+"Medicine 🩺\n\n"+
+"or\n\n"+
+"A new adventure in economics, finance, London, or somewhere unexpected.\n\n"+
+"Different paths.\n"+
+"Same amazing Dilbean."
+}
+
+
 ];
 
 
-// assign normal stars
-stars.forEach(star => {
-    const el = document.getElementById(star.id);
-    if (!el) return;
 
-    el.onclick = () => openPopup(star.title, star.text);
+missions.forEach(mission=>{
+
+
+const star=document.getElementById(mission.id);
+
+
+if(star){
+
+
+star.onclick=()=>{
+
+
+openPopup(
+mission.title,
+mission.text
+);
+
+
+if(mission.id==="star5"){
+
+
+setTimeout(()=>{
+
+
+closePopup();
+
+showFinalScreen();
+
+
+},3000);
+
+
+}
+
+
+
+};
+
+
+}
+
+
+
 });
 
 
-// =========================
-// STAR 5 (SPECIAL ENDING TRIGGER)
-// =========================
 
-const star5 = document.getElementById("star5");
-
-if (star5) {
-    star5.onclick = () => {
-        openPopup(
-            "🌟 The Fork in the Road",
-            "Medicine → UCAT + resits + applications\n\nOR\n\nNew path → econ / finance / London life\n\nBoth are valid.\nNeither is failure.\n\n→ completing mission..."
-        );
-
-        setTimeout(() => {
-            showFinalScreen();
-        }, 2200);
-    };
-}
 
 
 // =========================
 // EASTER EGGS
 // =========================
 
-const eggs = [
-    {
-        id: "egg1",
-        title: "👀 psst",
-        text: "You’re allowed to be unsure.\nJust don’t be mean to yourself about it."
-    },
-    {
-        id: "egg2",
-        title: "🐆 jaguar note",
-        text: "Still here. Still rooting for you."
-    },
-    {
-        id: "egg3",
-        title: "🚗 side quest",
-        text: "One day: windows down, music up, no stress."
-    }
+
+
+const eggs=[
+
+
+{
+id:"egg1",
+title:"👀 Psst...",
+text:
+"Reminder:\n\n"+
+"Your girlfriend thinks you are pretty amazing.\n"+
+"Unfortunately you cannot argue with her."
+},
+
+
+{
+id:"egg2",
+title:"🐆 Jaguar Approval",
+text:
+"The jaguar has arrived.\n\n"+
+"It has no advice.\n"+
+"It just supports you."
+},
+
+
+{
+id:"egg3",
+title:"💜 Secret Message",
+text:
+"Whatever happens next...\n\n"+
+"I am still proud of you.\n\n"+
+"Always."
+}
+
+
+
 ];
 
-eggs.forEach(egg => {
-    const el = document.getElementById(egg.id);
-    if (!el) return;
 
-    el.onclick = () => openPopup(egg.title, egg.text);
+
+eggs.forEach(egg=>{
+
+
+const element=document.getElementById(egg.id);
+
+
+
+if(element){
+
+
+element.onclick=()=>{
+
+
+openPopup(
+egg.title,
+egg.text
+);
+
+
+};
+
+
+}
+
+
+
 });
 
 
+
+
+
+
 // =========================
-// PARTICLES
+// FLOATING PARTICLES
 // =========================
 
-const particleContainer = document.getElementById("particles");
 
-function createParticle() {
-    if (!particleContainer) return;
+const particleContainer=document.getElementById("particles");
 
-    const p = document.createElement("div");
-    p.classList.add("particle");
 
-    p.style.left = Math.random() * 100 + "vw";
-    p.style.animationDuration = (6 + Math.random() * 6) + "s";
-    p.style.opacity = Math.random();
 
-    particleContainer.appendChild(p);
+function createParticle(){
 
-    setTimeout(() => p.remove(), 12000);
+
+if(!particleContainer)
+return;
+
+
+
+const particle=document.createElement("div");
+
+
+particle.className="particle";
+
+
+particle.style.left=Math.random()*100+"vw";
+
+
+particle.style.animationDuration=
+(6+Math.random()*8)+"s";
+
+
+
+particleContainer.appendChild(particle);
+
+
+
+setTimeout(()=>{
+
+particle.remove();
+
+},12000);
+
+
+
 }
 
-setInterval(createParticle, 400);
 
 
-// =========================
-// JAGUAR
-// =========================
+setInterval(createParticle,500);
 
-function spawnJaguar() {
-    const j = document.createElement("div");
-    j.id = "jaguar";
-    j.innerText = "🐆";
-    document.body.appendChild(j);
-}
 
-spawnJaguar();
+
+
+
 
 
 // =========================
-// FINAL SCREEN + CONFETTI
+// JAGUAR 🐆
 // =========================
 
-const canvas = document.getElementById("confetti");
-const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function createJaguar(){
 
-let confetti = [];
 
-function createConfetti() {
-    for (let i = 0; i < 140; i++) {
-        confetti.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height - canvas.height,
-            r: Math.random() * 6 + 2,
-            speed: Math.random() * 3 + 2,
-            color: `hsl(${260 + Math.random() * 60}, 100%, 70%)`
-        });
-    }
+const jaguar=document.createElement("div");
+
+
+jaguar.id="jaguar";
+
+
+jaguar.innerHTML="🐆";
+
+
+document.body.appendChild(jaguar);
+
+
+
 }
 
-function drawConfetti() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    confetti.forEach(c => {
-        ctx.fillStyle = c.color;
-        ctx.fillRect(c.x, c.y, c.r, c.r);
 
-        c.y += c.speed;
+createJaguar();
 
-        if (c.y > canvas.height) {
-            c.y = -10;
-        }
-    });
 
-    requestAnimationFrame(drawConfetti);
+
+
+
+
+
+// =========================
+// FINAL SCREEN
+// =========================
+
+
+function showFinalScreen(){
+
+
+if(finalScreen){
+
+
+finalScreen.classList.remove("hidden");
+
+
+startConfetti();
+
+
 }
 
-function showFinalScreen() {
-    if (!finalScreen) return;
 
-    finalScreen.classList.remove("hidden");
 
-    createConfetti();
-    drawConfetti();
 }
+
+
+
+
+
+
+
+// =========================
+// CONFETTI
+// =========================
+
+
+const canvas=document.getElementById("confetti");
+
+
+let ctx;
+
+
+if(canvas){
+
+
+ctx=canvas.getContext("2d");
+
+
+canvas.width=window.innerWidth;
+
+canvas.height=window.innerHeight;
+
+
+}
+
+
+
+let pieces=[];
+
+
+
+function startConfetti(){
+
+
+if(!ctx)
+return;
+
+
+
+for(let i=0;i<120;i++){
+
+
+pieces.push({
+
+x:Math.random()*canvas.width,
+
+y:-20,
+
+size:Math.random()*7+3,
+
+speed:Math.random()*3+2
+
+});
+
+
+}
+
+
+
+animateConfetti();
+
+
+}
+
+
+
+
+
+function animateConfetti(){
+
+
+if(!ctx)
+return;
+
+
+
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+
+
+pieces.forEach(p=>{
+
+
+ctx.fillRect(
+p.x,
+p.y,
+p.size,
+p.size
+);
+
+
+
+p.y+=p.speed;
+
+
+
+if(p.y>canvas.height){
+
+p.y=-10;
+
+}
+
+
+
+});
+
+
+
+requestAnimationFrame(animateConfetti);
+
+
+}
+
+
+
+
+
+
 
 
 // =========================
 // REPLAY
 // =========================
 
-if (replayBtn) {
-    replayBtn.onclick = () => {
-        location.reload();
-    };
+
+
+if(replayBtn){
+
+
+replayBtn.onclick=()=>{
+
+
+finalScreen.classList.add("hidden");
+
+
+
+map.classList.add("hidden");
+
+
+
+envelope.style.display="block";
+
+
+setTimeout(()=>{
+
+envelope.style.opacity="1";
+
+},100);
+
+
+
+};
+
+
+
 }
